@@ -17,7 +17,7 @@ export default function SectionList({
 }: SectionListProps) {
   return (
     <section className="mb-16">
-      <h2 className="mb-6 text-3xl font-bold"><span className="mr-2 text-accent">*</span>{title}</h2>
+      <h2 className="mb-6 text-3xl font-bold flex flex-row items-center"><span className="text-accent mr-2 text-2xl">{`>`}</span>{title}</h2>
       <div className="space-y-6 mb-6">
         {items.map((item) => (
           <div key={item.title} className="group">
@@ -34,7 +34,7 @@ export default function SectionList({
         ))}
       </div>
       <Link
-        className="font-semibold hover:underline text-accent transition-colors duration-200 inline-flex items-center gap-1 group"
+        className="hover:underline text-accent transition-colors duration-200 inline-flex items-center gap-1 group"
         href={viewAllHREF}
       >
         {viewAllText}{" "}<ArrowUpRightIcon className="transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" size={16} />

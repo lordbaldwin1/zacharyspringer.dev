@@ -7,15 +7,16 @@ import { ThemeToggle } from "./theme-toggle";
 import { Kbd } from "./ui/kbd";
 
 export default function Navbar() {
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (document.activeElement?.tagName === "INPUT" ||
+      if (
+        document.activeElement?.tagName === "INPUT" ||
         document.activeElement?.tagName === "TEXTAREA" ||
         event.target instanceof HTMLInputElement
       ) {
-        return
+        return;
       }
 
       switch (event.key.toLowerCase()) {
@@ -29,26 +30,35 @@ export default function Navbar() {
           router.push("/resume");
           break;
       }
-    }
+    };
 
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [router])
+  }, [router]);
 
   return (
-    <div className="flex flex-row justify-between items-center gap-4 mb-8">
+    <div className="mb-8 flex flex-row items-center justify-between gap-4">
       <div className="flex gap-4">
-        <Link href={"/"} className="hover:text-accent transition-all duration-200 flex items-center gap-2 group">
+        <Link
+          href={"/"}
+          className="hover:text-accent group flex items-center transition-all duration-200"
+        >
           <Kbd>h</Kbd>
           <span>home</span>
         </Link>
-        <Link href={"/projects"} className="hover:text-accent transition-all duration-200 flex items-center gap-2 group">
+        <Link
+          href={"/projects"}
+          className="hover:text-accent group flex items-center transition-all duration-200"
+        >
           <Kbd>p</Kbd>
           <span>projects</span>
         </Link>
-        <Link href={"/resume"} className="hover:text-accent transition-all duration-200 flex items-center gap-2 group">
+        <Link
+          href={"/resume"}
+          className="hover:text-accent group flex items-center transition-all duration-200"
+        >
           <Kbd>r</Kbd>
-          <span>resume</span>
+          <span>résumé</span>
         </Link>
       </div>
       <ThemeToggle />

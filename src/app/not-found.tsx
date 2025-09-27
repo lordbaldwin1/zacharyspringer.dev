@@ -1,3 +1,4 @@
+import { ArrowLeftIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 
 export default function NotFound() {
@@ -19,12 +20,12 @@ export default function NotFound() {
       ░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
       ░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
       ░▒▓█▓▒░      ░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░  `}</pre>
-        <div className="mt-4 text-right">
+        <div className="mt-4 flex justify-end">
           <Link
-            className="hover:text-muted-foreground transition-all duration-200"
+            className="hover:text-accent transition-all duration-200 flex flex-row items-center group"
             href={"/"}
           >
-            click here to go back
+            <ArrowLeftIcon size={16} className="mr-2 group-hover:-translate-x-1 translate-all duration-200"/>{`click here to go back`}
           </Link>
         </div>
       </div>

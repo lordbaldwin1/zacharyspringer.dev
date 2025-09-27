@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { Loader } from "lucide-react";
 
 export default function Clock() {
   const [time, setTime] = useState<Date | null>(null);
@@ -18,7 +19,7 @@ export default function Clock() {
   if (!mounted || !time) {
     return (
       <div className="flex flex-row items-center gap-2 mb-2">
-        <div>Loading...</div>
+        <div><Loader className="animate-spin" /></div>
       </div>
     );
   }

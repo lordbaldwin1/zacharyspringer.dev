@@ -2,6 +2,7 @@
 
 import GamingList from "~/components/gaming-list";
 import Header from "~/components/header";
+import SectionLinks from "~/components/section-links";
 import SectionList from "~/components/section-list";
 
 export type Item = {
@@ -37,6 +38,7 @@ export default function HomePage() {
         viewAllText="all projects"
         viewAllHREF="/projects"
       />
+      <SectionLinks />
     </>
   );
 }
@@ -114,12 +116,5 @@ const projectItems: Item[] = [
     description:
       "statistical analysis and visualization of counter-strike 2 leetify data's correlation to match winrate",
     href: "https://cs2-bun-frontend-production.up.railway.app/",
-  },
-  {
-    title: "trimet data pipeline",
-    role: "creator",
-    description:
-      "automated ETL pipeline over GCP pub/sub with GCP CE linux virtual machines",
-    href: "https://github.com/lordbaldwin1/transit-pipeline",
   },
 ];
