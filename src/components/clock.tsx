@@ -106,7 +106,7 @@ export default function Clock() {
           <p>{time.toLocaleTimeString()}</p>
         </TooltipContent>
       </Tooltip>
-      <p>{`right now I'm probably ${text}`}</p>
+      <p>{`I'm probably ${text}`}</p>
     </div>
   );
 }

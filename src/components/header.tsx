@@ -1,4 +1,4 @@
-import { MapPinAreaIcon } from "@phosphor-icons/react/dist/ssr";
+import { MapPinIcon } from "@phosphor-icons/react/dist/ssr";
 import { ScrambleText } from "./scramble-text";
 import Clock from "./clock";
 
@@ -13,7 +13,7 @@ export default function Header() {
       <div className="text-muted-foreground text-md">
         <Clock />
         <div className="mb-2 flex flex-row items-center gap-2">
-          <MapPinAreaIcon size={20} />
+          <MapPinIcon size={20} />
           portland, oregon
         </div>
       </div>
