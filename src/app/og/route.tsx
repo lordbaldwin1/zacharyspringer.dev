@@ -3,28 +3,33 @@ import { ImageResponse } from "next/og"
 export const runtime = "edge"
 
 async function loadGoogleFont(font: string, text: string) {
-  const url = `https://fonts.googleapis.com/css2?family=${font}&text=${encodeURIComponent(
-    text
-  )}`
-  const css = await (await fetch(url)).text()
-  const resource = /src: url\((.+)\) format\('(opentype|truetype)'\)/.exec(css)
+  try {
+    const url = `https://fonts.googleapis.com/css2?family=${font}:wght@400&text=${encodeURIComponent(
+      text
+    )}`
+    const css = await (await fetch(url)).text()
+    const resource = /src: url\((.+)\) format\('(opentype|truetype)'\)/.exec(css)
 
-  if (resource) {
-    const response = await fetch(resource[1]!)
-    if (response.status == 200) {
-      return await response.arrayBuffer()
+    if (resource) {
+      const response = await fetch(resource[1]!)
+      if (response.status === 200) {
+        return await response.arrayBuffer()
+      }
     }
+  } catch (error) {
+    console.error('Failed to load font:', error)
   }
 
   throw new Error("failed to load font data")
 }
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
-  const title = searchParams.get("title")
-  const text = title ? `zachary springer • ${title}` : "zachary springer • home"
+  try {
+    const { searchParams } = new URL(request.url)
+    const title = searchParams.get("title")
+    const text = title ? `zachary springer • ${title}` : "zachary springer • home"
 
-  return new ImageResponse(
+    return new ImageResponse(
     (
       <div
         style={{
@@ -41,7 +46,8 @@ export async function GET(request: Request) {
         }}
       >
         <img
-          src="https://www.zacharyspringer.dev/lordbaldwin1.jpg"
+          src="https://zacharyspringer.dev/lordbaldwin1.jpg"
+          alt="Zachary Springer profile picture"
           style={{
             position: "absolute",
             bottom: "40px",
@@ -96,5 +102,9 @@ export async function GET(request: Request) {
         },
       ],
     }
-  )
+    )
+  } catch (error) {
+    console.error('Failed to generate OG image:', error)
+    return new Response('Failed to generate image', { status: 500 })
+  }
 }
