@@ -7,7 +7,7 @@ async function loadGoogleFont(font: string, text: string) {
     text
   )}`
   const css = await (await fetch(url)).text()
-  const resource = css.match(/src: url\((.+)\) format\('(opentype|truetype)'\)/)
+  const resource = /src: url\((.+)\) format\('(opentype|truetype)'\)/.exec(css)
 
   if (resource) {
     const response = await fetch(resource[1]!)
