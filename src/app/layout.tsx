@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og/home",
+        url: "/lordbaldwin1.jpg",
         width: 1200,
         height: 630,
         alt: "Zachary Springer - Developer, gamer, and gym guy.",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "Zachary Springer",
     card: "summary_large_image",
     creator: "@lordbaldwin1",
-    images: ["/og/home"],
+    images: ["/lordbaldwin1.jpg"],
   },
 }
 
