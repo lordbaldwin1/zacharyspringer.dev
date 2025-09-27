@@ -48,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistMono.variable} min-h-screen font-mono antialiased`}
+        className={`${geistMono.variable} font-mono min-h-screen antialiased`}
       >
         <div className="mx-auto max-w-4xl px-4 py-8">
           <ThemeProvider
