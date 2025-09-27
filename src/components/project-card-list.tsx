@@ -27,7 +27,7 @@ type ProjectListProps = {
 };
 export function ProjectCardList({ projects }: ProjectListProps) {
   return (
-    <section className="space-y-16">
+    <section className="space-y-12">
       {projects.map((project) => (
         <Card
           key={project.title}

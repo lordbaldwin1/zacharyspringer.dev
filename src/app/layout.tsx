@@ -24,7 +24,14 @@ export const metadata: Metadata = {
     siteName: "Zachary Springer",
     locale: "en_US",
     type: "website",
-    images: ["https://www.zacharyspringer.dev/og/home"],
+    images: [
+      {
+        url: "/og/home",
+        width: 1200,
+        height: 630,
+        alt: "Zachary Springer - Developer, gamer, and gym guy.",
+      },
+    ],
   },
   robots: {
     index: true,
@@ -37,6 +44,7 @@ export const metadata: Metadata = {
     title: "Zachary Springer",
     card: "summary_large_image",
     creator: "@lordbaldwin1",
+    images: ["/og/home"],
   },
 }
 
