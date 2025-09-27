@@ -4,12 +4,24 @@ import { useEffect, useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 export default function Clock() {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState<Date | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    setTime(new Date());
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
+
+  // Prevent hydration mismatch by not rendering clock until mounted
+  if (!mounted || !time) {
+    return (
+      <div className="flex flex-row items-center gap-2 mb-2">
+        <div>Loading...</div>
+      </div>
+    );
+  }
 
   const seconds = time.getSeconds();
   const minutes = time.getMinutes();
@@ -34,11 +46,6 @@ export default function Clock() {
   const minuteDeg = minutes * 6 + seconds * 0.1;
   const hourDeg = (hours % 12) * 30 + minutes * 0.5;
 
-  if (!time) {
-    return (
-        <div>Loading...</div>
-    )
-  }
   return (
     <div className="flex flex-row items-center gap-2 mb-2">
       <Tooltip>

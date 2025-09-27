@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { ThemeToggle } from "./theme-toggle";
+import { Kbd } from "./ui/kbd";
 
 export default function Navbar() {
   const router = useRouter()
@@ -33,14 +34,24 @@ export default function Navbar() {
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [router])
+
   return (
-    <div className="flex flex-row justify-start gap-4 mb-8">
-      <div className="flex flex-row items-center gap-4">
-        <Link href={"/"} className="hover:text-muted-foreground transition-all duration-200">[h]ome</Link>
-        <Link href={"/projects"} className="hover:text-muted-foreground transition-all duration-200">[p]rojects</Link>
-        <Link href={"/resume"} className="hover:text-muted-foreground transition-all duration-200">[r]esume</Link>
-        <ThemeToggle />
+    <div className="flex flex-row justify-between items-center gap-4 mb-8">
+      <div className="flex gap-4">
+        <Link href={"/"} className="hover:text-accent transition-all duration-200 flex items-center gap-2 group">
+          <Kbd>h</Kbd>
+          <span>home</span>
+        </Link>
+        <Link href={"/projects"} className="hover:text-accent transition-all duration-200 flex items-center gap-2 group">
+          <Kbd>p</Kbd>
+          <span>projects</span>
+        </Link>
+        <Link href={"/resume"} className="hover:text-accent transition-all duration-200 flex items-center gap-2 group">
+          <Kbd>r</Kbd>
+          <span>resume</span>
+        </Link>
       </div>
+      <ThemeToggle />
     </div>
   );
 }

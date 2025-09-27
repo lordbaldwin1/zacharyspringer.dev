@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useTheme } from "next-themes";
 import { useEffect, useState, useCallback } from "react";
+import { Kbd } from "./ui/kbd";
 
 
 export function ThemeToggle() {
@@ -38,15 +39,15 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button className="hover:text-muted-foreground" onClick={toggleTheme}>
-        [t]oggle_theme
+      <button className="hover:text-accent flex items-center group" onClick={toggleTheme}>
+        <Kbd>t</Kbd> toggle_theme
       </button>
     );
   }
 
   return (
-    <button className="hover:text-muted-foreground" onClick={toggleTheme}>
-      [t]oggle_theme
+    <button className="hover:text-accent flex items-center group" onClick={toggleTheme}>
+      <Kbd className="mr-2">t</Kbd> toggle_theme
     </button>
   );
 }
