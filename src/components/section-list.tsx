@@ -17,7 +17,7 @@ export default function SectionList({
 }: SectionListProps) {
   return (
     <section className="mb-16">
-      <h2 className="mb-6 text-3xl font-bold flex flex-row items-center"><span className="text-accent mr-2 text-2xl">{`>`}</span>{title}</h2>
+      <h2 className="mb-6 text-2xl font-bold flex flex-row items-center"><span className="text-accent mr-2 text-2xl">{`>`}</span>{title}</h2>
       <div className="space-y-6 mb-6">
         {items.map((item) => (
           <div key={item.title} className="group">

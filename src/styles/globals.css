@@ -153,7 +153,7 @@
   --sidebar-ring: oklch(0.6083 0.209 27.0276);
   --font-sans: "Oxanium", sans-serif;
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: "Source Code Pro", monospace;
+  --font-mono: "Geist Mono", monospace;
   --radius: 0px;
   --shadow-2xs: 0px 2px 5px 0px hsl(0 0% 0% / 0.3);
   --shadow-xs: 0px 2px 5px 0px hsl(0 0% 0% / 0.3);

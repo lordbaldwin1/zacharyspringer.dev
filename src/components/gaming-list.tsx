@@ -18,7 +18,7 @@ type GamingListProps = {
 export default function GamingList({ title, games }: GamingListProps) {
   return (
     <section className="mb-16">
-      <h2 className="mb-6 text-3xl font-bold">
+      <h2 className="mb-6 text-2xl font-bold">
         <Dialog>
           <DialogTrigger asChild>
             <span className="text-accent group relative hover:cursor-pointer">

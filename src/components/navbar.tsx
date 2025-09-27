@@ -37,7 +37,7 @@ export default function Navbar() {
   }, [router]);
 
   return (
-    <div className="mb-8 flex flex-row items-center justify-between gap-4">
+    <div className="mb-12 flex flex-row items-center justify-between gap-4">
       <div className="flex flex-wrap gap-4">
         <Link
           href={"/"}
