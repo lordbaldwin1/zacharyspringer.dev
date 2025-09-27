@@ -5,7 +5,7 @@ import Clock from "./clock";
 export default function Header() {
   return (
     <header className="mb-16 space-y-4">
-      <h1 className="animate-fade-in mb-4 text-4xl font-bold">
+      <h1 className="animate-fade-in mb-6 text-4xl font-bold">
         <span className="inline-block">
           <ScrambleText text="zachary springer" />
         </span>
@@ -14,7 +14,7 @@ export default function Header() {
          [@keyframes_fade-in-up:{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}]">
         <div className="text-muted-foreground text-md">
           <Clock />
-          <div className="mb-4 flex flex-row items-center gap-2">
+          <div className="mb-6 flex flex-row items-center gap-2">
             <MapPinIcon size={20} />
             portland, oregon
           </div>

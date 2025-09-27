@@ -62,7 +62,7 @@ export function ProjectCardList({ projects }: ProjectListProps) {
               ))}
             </ul>
           </CardContent>
-          <CardFooter className="flex flex-col items-start space-y-1">
+          <CardFooter className="flex flex-col items-start space-y-2">
             <h2 className="text-lg font-semibold">technologies</h2>
             <div className="flex flex-row flex-wrap gap-2">
               {project.technologies.map((item, i) => (
