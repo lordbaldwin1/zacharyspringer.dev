@@ -10,7 +10,7 @@ export default function SectionLinks() {
       <h2 className="mb-6 text-xl font-semibold">
         <span className="text-accent mr-2">{`>`}</span>links
       </h2>
-      <div className="text-muted-foreground flex flex-row items-center justify-start gap-6">
+      <div className="text-muted-foreground flex flex-row flex-wrap items-center justify-start gap-6">
         <Link href={"https://github.com/lordbaldwin1"} target="_blank" className="group group flex flex-row items-center">
           <span className="group-hover:text-accent duration-200 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:rotate-45">{`<`}</span>
           <span className="group-hover:text-accent">{`/`}</span>
@@ -40,7 +40,7 @@ export default function SectionLinks() {
         >
           <AtIcon
             size={18}
-            className=""
+            className="group-hover:animate-spin"
           />
           {`springerczachary@gmail.com`}
         </Link>

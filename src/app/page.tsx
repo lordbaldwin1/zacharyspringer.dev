@@ -25,20 +25,23 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <SectionList
-        title={"work"}
-        items={workItems}
-        viewAllText="full résumé"
-        viewAllHREF="/resume"
-      />
-      <GamingList title={"gaming"} games={gamingItems} />
-      <SectionList
-        title={"projects"}
-        items={projectItems}
-        viewAllText="all projects"
-        viewAllHREF="/projects"
-      />
-      <SectionLinks />
+      <div className="animate-[fade-in-up_0.3s_ease-out_forwards]
+         [@keyframes_fade-in-up:{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}]">
+        <SectionList
+          title={"work"}
+          items={workItems}
+          viewAllText="full résumé"
+          viewAllHREF="/resume"
+        />
+        <GamingList title={"gaming"} games={gamingItems} />
+        <SectionList
+          title={"projects"}
+          items={projectItems}
+          viewAllText="all projects"
+          viewAllHREF="/projects"
+        />
+        <SectionLinks />
+      </div>
     </>
   );
 }

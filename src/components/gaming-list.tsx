@@ -48,7 +48,7 @@ export default function GamingList({ title, games }: GamingListProps) {
         {games.map((game) => (
           <Dialog key={game.title}>
             <DialogTrigger asChild>
-              <div className="group flex justify-between hover:cursor-pointer">
+              <div className="group flex justify-between items-center hover:cursor-pointer">
                 <div className="flex items-center gap-2">
                   <h2 className="group-hover:text-accent text-lg">
                     {game.title}
@@ -61,7 +61,7 @@ export default function GamingList({ title, games }: GamingListProps) {
                     className="opacity-0 transition-opacity duration-200 group-hover:opacity-100"
                   />
                 </div>
-                <span className="text-sm">{game.achievement}</span>
+                <span className="text-sm text-muted-foreground">{game.achievement}</span>
               </div>
             </DialogTrigger>
             <DialogContent className="w-full max-w-[95vw] sm:max-w-5xl">

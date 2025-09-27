@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <div className="mb-8 flex flex-row items-center justify-between gap-4">
-      <div className="flex gap-4">
+      <div className="flex flex-wrap gap-4">
         <Link
           href={"/"}
           className="hover:text-accent group flex items-center transition-all duration-200"

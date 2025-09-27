@@ -1,16 +1,21 @@
 import { ScrambleText } from "./scramble-text";
 
-export default function ProjectsHeader() {
+type ProjectsHeaderProps = {
+  title: string;
+  description: string;
+}
+export default function ProjectsHeader({title, description}: ProjectsHeaderProps) {
   return (
     <header className="mb-8">
-      <h1 className="animate-fade-in mb-6 text-4xl font-bold">
+      <h1 className="mb-6 text-4xl font-bold">
         <span className="mr-2 text-accent">{`>`}</span>
         <span className="inline-block">
-          <ScrambleText text="projects" />
+          <ScrambleText text={title} />
         </span>
       </h1>
-      <p className="animate-fade-in-up text-muted-foreground leading-relaxed transition-all duration-200">
-        {`here is a more extensive, detailed list of my personal projects.`}
+      <p className="animate-[fade-in-up_0.3s_ease-out_forwards]
+         [@keyframes_fade-in-up:{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}] text-muted-foreground leading-relaxed">
+        {description}
       </p>
     </header>
   );
