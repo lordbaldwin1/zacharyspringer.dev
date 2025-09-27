@@ -99,7 +99,7 @@
   --sidebar-ring: oklch(0.5016 0.1887 27.4816);
   --font-sans: "Oxanium", sans-serif;
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: "Source Code Pro", monospace;
+  --font-mono: "Geist Mono", monospace;
   --radius: 0px;
   --shadow-2xs: 0px 2px 4px 0px hsl(0 0% 0% / 0.2);
   --shadow-xs: 0px 2px 4px 0px hsl(0 0% 0% / 0.2);
