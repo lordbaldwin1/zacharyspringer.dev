@@ -56,9 +56,7 @@ export function ProjectCardList({ projects }: ProjectListProps) {
             <h2 className="text-lg font-semibold">achievements</h2>
             <ul className="list-inside list-disc">
               {project.achievements.map((item, i) => (
-                <div key={i}>
-                  <li>{item}</li>
-                </div>
+                <li key={i}>{item}</li>
               ))}
             </ul>
           </CardContent>
