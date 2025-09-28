@@ -61,7 +61,8 @@ export default function GamingList({ title, games }: GamingListProps) {
                     className="opacity-0 transition-opacity duration-200 group-hover:opacity-100"
                   />
                 </div>
-                <span className="text-sm text-muted-foreground">{game.achievement}</span>
+                <span className="sm:hidden inline-block text-muted-foreground text-2xl">›</span>
+                <span className="hidden sm:inline-block text-sm text-muted-foreground">{game.achievement}</span>
               </div>
             </DialogTrigger>
             <DialogContent className="w-full max-w-[95vw] sm:max-w-5xl">
