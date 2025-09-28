@@ -117,7 +117,7 @@ const projectItems: Item[] = [
     title: "cs2-bun",
     role: "creator",
     description:
-      "statistical analysis and visualization of counter-strike 2 leetify data's correlation to match winrate",
+      "statistical analysis and visualization of counter-strike 2 leetify data's correlation to match winrate.",
     href: "https://cs2-bun-frontend-production.up.railway.app/",
   },
 ];
