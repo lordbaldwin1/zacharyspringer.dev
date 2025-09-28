@@ -4,7 +4,8 @@ import SectionLinks from "~/components/section-links";
 
 export default function ResumePage() {
   return (
-    <>
+    <div className="animate-[fade-in-up_0.3s_ease-out_forwards]
+         [@keyframes_fade-in-up:{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}]">
       <ProjectsHeader title="résumé" description="here is my résumé in full." />
       <ResumeHeader />
       <EducationSection education={education} />
@@ -12,7 +13,7 @@ export default function ResumePage() {
       <ExperienceSection experience={experience} />
       <ExperienceSection experience={projects} />
       <SectionLinks />
-    </>
+    </div>
   );
 }
 
