@@ -4,7 +4,15 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 import { useEffect, useState, useCallback } from "react";
 import { Kbd } from "./ui/kbd";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "./ui/dialog";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { GhostIcon } from "@phosphor-icons/react/dist/ssr";
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme();
@@ -30,12 +38,14 @@ export function ThemeToggle() {
       }
 
       if (event.key.toLowerCase() === "t") {
-        setToggleCount(prevCount => {
+        setToggleCount((prevCount) => {
           const newCount = prevCount + 1;
           console.log(newCount);
-          if (newCount <= 5) {
-            toggleTheme();
+          
+          if (newCount <= 10) {
+            setTimeout(() => toggleTheme(), 0);
           }
+          
           return newCount;
         });
       }
@@ -45,14 +55,18 @@ export function ThemeToggle() {
   }, [toggleTheme]);
 
   useEffect(() => {
-    if (toggleCount > 5) {
+    if (toggleCount === 10) {
       console.log("here");
-      setIsDialogOpen(true);
 
-      const audio = new Audio('/dark_souls.mp3');
+      // Use setTimeout to ensure this runs after the current render cycle
+      setTimeout(() => {
+        setIsDialogOpen(true);
+      }, 0);
+
+      const audio = new Audio("/dark_souls.mp3");
       audio.volume = 0.1;
       audio.play().catch((error) => {
-        console.error('Audio playback failed:', error);
+        console.error("Audio playback failed:", error);
         setTimeout(() => {
           audio.play().catch(console.error);
         }, 100);
@@ -61,33 +75,45 @@ export function ThemeToggle() {
   }, [toggleCount]);
 
   useEffect(() => {
-    const timer = setInterval(() => setToggleCount(0), 5000);
+    const timer = setInterval(() => {
+      setToggleCount(0);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <>
-    <button
-      className="hover:text-accent group flex items-center"
-      onClick={toggleTheme}
-    >
-      <Kbd>t</Kbd> toggle_theme
-    </button>
-    <Dialog open={isDialogOpen} onOpenChange={(open) => {
-      setIsDialogOpen(open);
-      if (!open) {
-        setToggleCount(0);
-      }
-    }}>
-      <DialogContent className="sm:max-w-[100vw] w-screen bg-black h-screen flex items-center justify-center animate-fade-in transition-all duration-1000">
-        <DialogHeader>
-          <DialogTitle></DialogTitle>
-          <DialogDescription className="flex items-center justify-center text-9xl font-serif text-red-700">
-            YOU DIED
-          </DialogDescription>
-        </DialogHeader>
-      </DialogContent>
-    </Dialog>
-  </>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <button
+            className="hover:text-accent group flex items-center"
+            onClick={toggleTheme}
+          >
+            <Kbd>t</Kbd> toggle_theme
+          </button>
+        </TooltipTrigger>
+        <TooltipContent className="flex flex-row items-center gap-2">
+          <GhostIcon />{`don't press 10x fast`}
+        </TooltipContent>
+      </Tooltip>
+      <Dialog
+        open={isDialogOpen}
+        onOpenChange={(open) => {
+          setIsDialogOpen(open);
+          if (!open) {
+            setToggleCount(0);
+          }
+        }}
+      >
+        <DialogContent className="animate-fade-in flex h-screen w-screen items-center justify-center bg-black transition-all duration-1000 sm:max-w-[100vw]">
+          <DialogHeader>
+            <DialogTitle></DialogTitle>
+            <DialogDescription className="flex items-center justify-center font-serif text-9xl text-red-700">
+              YOU DIED
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
