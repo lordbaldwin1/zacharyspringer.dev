@@ -5,7 +5,7 @@ import Clock from "./clock";
 export default function Header() {
   return (
     <header className="mb-16 space-y-4">
-      <h1 className="animate-fade-in mb-6 text-4xl font-bold">
+      <h1 className="mb-6 text-4xl font-bold">
         <span className="inline-block">
           <ScrambleText text="zachary springer" />
         </span>
