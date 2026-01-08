@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { Menu } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { ThemeToggle } from "./theme-toggle";
 import { Kbd } from "./ui/kbd";
 import {
@@ -15,10 +14,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { ListIcon, TextOutdentIcon } from "@phosphor-icons/react/dist/ssr";
+import { ListIcon } from "@phosphor-icons/react/dist/ssr";
+import ResumeModal, { type ResumeModalHandle } from "./resume-modal";
 
 export default function Navbar() {
   const router = useRouter();
+  const resumeModalRef = useRef<ResumeModalHandle>(null);
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
@@ -38,7 +39,7 @@ export default function Navbar() {
           router.push("/projects");
           break;
         case "r":
-          router.push("/resume");
+          resumeModalRef.current?.open();
           break;
       }
     };
@@ -47,89 +48,96 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [router]);
 
-  return (
-    <div className="mb-12 flex flex-row items-center justify-end sm:justify-between gap-4">
-      {/* Desktop Navigation */}
-      <div className="hidden sm:flex items flex-wrap gap-4">
-        <Link
-          href={"/"}
-          className="hover:text-accent group flex items-center transition-all duration-200"
-        >
-          <Kbd>h</Kbd>
-          <span>home</span>
-        </Link>
-        <Link
-          href={"/projects"}
-          className="hover:text-accent group flex items-center transition-all duration-200"
-        >
-          <Kbd>p</Kbd>
-          <span>projects</span>
-        </Link>
-        <Link
-          href={"/resume"}
-          className="hover:text-accent group flex items-center transition-all duration-200"
-        >
-          <Kbd>r</Kbd>
-          <span>résumé</span>
-        </Link>
-      </div>
-      
-      {/* Desktop Theme Toggle */}
-      <div className="hidden sm:block">
-        <ThemeToggle />
-      </div>
+  const handleResumeClick = () => {
+    resumeModalRef.current?.open();
+  };
 
-      {/* Mobile Hamburger Menu */}
-      <div className="sm:hidden flex justify-end">
-        <Sheet>
-          <SheetTrigger asChild className="-mb-4">
-            <button className="hover:text-accent transition-colors">
-              <ListIcon size={30} />
-              <span className="sr-only">Open menu</span>
-            </button>
-          </SheetTrigger>
-          <SheetContent side="right">
-            <SheetHeader>
-              <SheetTitle>navigation</SheetTitle>
-              <SheetDescription>
-                tap the links to navigate.
-              </SheetDescription>
-            </SheetHeader>
-              <div className="flex flex-col gap-6 ml-6">
-                <SheetClose asChild>
-                  <Link
-                    href={"/"}
-                    className="hover:text-accent group flex items-center transition-all duration-200"
-                  >
-                    <Kbd>h</Kbd>
-                    <span>home</span>
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href={"/projects"}
-                    className="hover:text-accent group flex items-center transition-all duration-200"
-                  >
-                    <Kbd>p</Kbd>
-                    <span>projects</span>
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href={"/resume"}
-                    className="hover:text-accent group flex items-center transition-all duration-200"
-                  >
-                    <Kbd>r</Kbd>
-                    <span>résumé</span>
-                  </Link>
-                </SheetClose>
-                <div>
-                  <ThemeToggle />
+  return (
+    <>
+      <div className="mb-12 flex flex-row items-center justify-end sm:justify-between gap-4">
+        {/* Desktop Navigation */}
+        <div className="hidden sm:flex items flex-wrap gap-4">
+          <Link
+            href={"/"}
+            className="hover:text-accent group flex items-center transition-all duration-200"
+          >
+            <Kbd>h</Kbd>
+            <span>home</span>
+          </Link>
+          <Link
+            href={"/projects"}
+            className="hover:text-accent group flex items-center transition-all duration-200"
+          >
+            <Kbd>p</Kbd>
+            <span>projects</span>
+          </Link>
+          <button
+            onClick={handleResumeClick}
+            className="hover:text-accent group flex items-center transition-all duration-200"
+          >
+            <Kbd>r</Kbd>
+            <span>résumé</span>
+          </button>
+        </div>
+        
+        {/* Desktop Theme Toggle */}
+        <div className="hidden sm:block">
+          <ThemeToggle />
+        </div>
+
+        {/* Mobile Hamburger Menu */}
+        <div className="sm:hidden flex justify-end">
+          <Sheet>
+            <SheetTrigger asChild className="-mb-4">
+              <button className="hover:text-accent transition-colors">
+                <ListIcon size={30} />
+                <span className="sr-only">Open menu</span>
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle>navigation</SheetTitle>
+                <SheetDescription>
+                  tap the links to navigate.
+                </SheetDescription>
+              </SheetHeader>
+                <div className="flex flex-col gap-6 ml-6">
+                  <SheetClose asChild>
+                    <Link
+                      href={"/"}
+                      className="hover:text-accent group flex items-center transition-all duration-200"
+                    >
+                      <Kbd>h</Kbd>
+                      <span>home</span>
+                    </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Link
+                      href={"/projects"}
+                      className="hover:text-accent group flex items-center transition-all duration-200"
+                    >
+                      <Kbd>p</Kbd>
+                      <span>projects</span>
+                    </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <button
+                      onClick={handleResumeClick}
+                      className="hover:text-accent group flex items-center transition-all duration-200"
+                    >
+                      <Kbd>r</Kbd>
+                      <span>résumé</span>
+                    </button>
+                  </SheetClose>
+                  <div>
+                    <ThemeToggle />
+                  </div>
                 </div>
-              </div>
-          </SheetContent>
-        </Sheet>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
-    </div>
+      <ResumeModal ref={resumeModalRef} />
+    </>
   );
 }

@@ -44,10 +44,15 @@ export function ProjectCardList({ projects }: ProjectListProps) {
               <span className="text-foreground">{project.description}</span>
             </CardDescription>
             <CardAction>
-              <Link href={project.link} target="_blank">
+              <Link
+                href={project.link}
+                target="_blank"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-muted-foreground/30 text-sm text-muted-foreground transition-all duration-200 hover:border-accent hover:text-accent hover:bg-accent/10 group-hover:border-accent/50"
+              >
+                <span>view</span>
                 <ArrowUpRightIcon
-                  size={20}
-                  className="group-hover:text-accent transition-colors duration-200"
+                  size={16}
+                  className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 />
               </Link>
             </CardAction>

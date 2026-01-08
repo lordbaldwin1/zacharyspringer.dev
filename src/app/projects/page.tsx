@@ -20,20 +20,28 @@ export default function ProjectsPage() {
 
 const projects: Project[] = [
   {
-    title: "bb-go",
+    title: "liftthings",
     role: "creator",
     date: "present",
     description:
-      "a bitboard chess engine in go, implementing move generation, UCI protocol, and search.",
+      "a hypertrophy training app with automatic PR tracking, AI workout generation, and progression analytics.",
     achievements: [
-      "heavy use of bitwise operations",
-      "fen parsing board states",
-      "move generation",
-      "UCI protocol",
-      "64-bit unsigned integer board representation",
+      "AI-powered workout generation based on training history",
+      "automatic personal record tracking on workout completion",
+      "strength progression charts by muscle group or exercise",
+      "weekly volume analysis per muscle group",
     ],
-    technologies: ["go"],
-    link: "https://github.com/lordbaldwin1/bb-go",
+    technologies: [
+      "typescript",
+      "next.js",
+      "react",
+      "tailwindCSS",
+      "postgres",
+      "drizzleORM",
+      "tanstack query",
+      "vercel ai sdk",
+    ],
+    link: "https://liftthings.up.railway.app/",
   },
   {
     title: "vanishtype",

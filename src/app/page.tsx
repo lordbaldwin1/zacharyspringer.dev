@@ -102,10 +102,10 @@ const gamingItems: Game[] = [
 
 const projectItems: Item[] = [
   {
-    title: "bb-go (work in progress)",
+    title: "liftthings",
     role: "creator",
-    description: "bitboard chess engine in go.",
-    href: "https://github.com/lordbaldwin1/bb-go",
+    description: "hypertrophy training app with AI workout generation and progression analytics.",
+    href: "https://liftthings.up.railway.app/",
   },
   {
     title: "vanishtype",
