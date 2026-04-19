@@ -36,7 +36,7 @@ const ResumeModal = forwardRef<ResumeModalHandle>((_, ref) => {
         </DialogHeader>
         <DialogFooter className="sm:justify-center">
           <a
-            href="/Resum_Full_Stack_v2.pdf"
+            href="/Zachary_Springer_Resume_QA.pdf"
             download
             onClick={() => setIsOpen(false)}
             className="inline-flex items-center justify-center gap-2 rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"

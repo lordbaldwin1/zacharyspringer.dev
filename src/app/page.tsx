@@ -52,24 +52,24 @@ const workItems: Item[] = [
     role: "qa contractor",
     period: "oct. 2024 - present",
     description:
-      "leading international regression testing and new feature testing.",
+      "develop regression & new feature test suites. perform functional, regression, & system testing.",
     href: "https://robinhood.com",
+  },
+  {
+    title: "ranger ev",
+    role: "software engineering intern",
+    period: "mar. 2024 - aug. 2024",
+    description:
+      "built a dynamic mapping react/java spring boot application. created e2e test suite w/ selenium, java, junit, & postman.",
+    href: "https://www.rangerev.co/",
   },
   {
     title: "arya jewelry",
     role: "freelance software engineer",
-    period: "jan. 2025 - jun. 2025",
+    period: "jan. 2024 - jun. 2024",
     description:
-      "engineered an ecommerce storefront and dashboard, optimized for speed and ease of use.",
+      "developed ecommerce storefront & dashboard. created e2e test suite w/ playwright & typescript.",
     href: "https://github.com/lordbaldwin1/arya/tree/main",
-  },
-  {
-    title: "ecobadlandz",
-    role: "software engineering intern",
-    period: "mar. 2024 - aug. 2024",
-    description:
-      "built a dynamic mapping application for electric vehicle charging stations.",
-    href: "https://ecobadlandz.com/",
   },
 ];
 
@@ -102,22 +102,15 @@ const gamingItems: Game[] = [
 
 const projectItems: Item[] = [
   {
-    title: "liftthings",
-    role: "creator",
-    description: "hypertrophy training app with AI workout generation and progression analytics.",
-    href: "https://liftthings.up.railway.app/",
+    title: "qaplayground",
+    role: "contributor",
+    description: "contributed to open source solution suite. created secondary solution suite showcasing page object model (POM) and data-driven testing techniques.",
+    href: "https://qaplayground.dev/",
   },
   {
     title: "vanishtype",
     role: "creator",
     description: "minimalistic typing game with live feedback.",
     href: "https://vanishtype.com/",
-  },
-  {
-    title: "cs2-bun",
-    role: "creator",
-    description:
-      "statistical analysis and visualization of counter-strike 2 leetify data's correlation to match winrate.",
-    href: "https://cs2-bun-frontend-production.up.railway.app/",
   },
 ];

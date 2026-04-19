@@ -20,28 +20,22 @@ export default function ProjectsPage() {
 
 const projects: Project[] = [
   {
-    title: "liftthings",
-    role: "creator",
-    date: "present",
+    title: "qaplayground",
+    role: "contributor",
+    date: "jan. 2026",
     description:
-      "a hypertrophy training app with automatic PR tracking, AI workout generation, and progression analytics.",
+      "contributor to open source solution suite. created secondary solution suite showcasing page object model (POM) & data-driven testing techniques.",
     achievements: [
-      "AI-powered workout generation based on training history",
-      "automatic personal record tracking on workout completion",
-      "strength progression charts by muscle group or exercise",
-      "weekly volume analysis per muscle group",
+      "contributed to open source project",
+      "created secondary solution suite",
+      "showcases scalable automated testing architecture",
     ],
     technologies: [
+      "playwright",
       "typescript",
-      "next.js",
-      "react",
-      "tailwindCSS",
-      "postgres",
-      "drizzleORM",
-      "tanstack query",
-      "vercel ai sdk",
+      "github actions",
     ],
-    link: "https://liftthings.up.railway.app/",
+    link: "https://github.com/lordbaldwin1/automation",
   },
   {
     title: "vanishtype",
@@ -67,6 +61,30 @@ const projects: Project[] = [
     link: "https://vanishtype.com/",
   },
   {
+    title: "liftthings",
+    role: "creator",
+    date: "dec. 2025",
+    description:
+      "a hypertrophy training app with automatic PR tracking, AI workout generation, and progression analytics.",
+    achievements: [
+      "AI-powered workout generation based on training history",
+      "automatic personal record tracking on workout completion",
+      "strength progression charts by muscle group or exercise",
+      "weekly volume analysis per muscle group",
+    ],
+    technologies: [
+      "typescript",
+      "next.js",
+      "react",
+      "tailwindCSS",
+      "postgres",
+      "drizzleORM",
+      "tanstack query",
+      "vercel ai sdk",
+    ],
+    link: "https://github.com/lordbaldwin1/lift",
+  },
+  {
     title: "profit prophet",
     role: "creator",
     date: "aug. 2025",
@@ -89,7 +107,7 @@ const projects: Project[] = [
       "react",
       "tailwindCSS",
     ],
-    link: "https://fin-fortune-client-production.up.railway.app/",
+    link: "https://github.com/lordbaldwin1/fin-fortune",
   },
   {
     title: "cs2-bun",
@@ -114,7 +132,7 @@ const projects: Project[] = [
       "tailwindCSS",
       "recharts",
     ],
-    link: "https://cs2-bun-frontend-production.up.railway.app/",
+    link: "https://github.com/lordbaldwin1/cs2-bun",
   },
   {
     title: "trimet visualization",

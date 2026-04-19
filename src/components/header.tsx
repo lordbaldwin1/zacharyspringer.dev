@@ -20,7 +20,7 @@ export default function Header() {
           </div>
         </div>
         <p className="leading-relaxed">
-          {`hello there, I'm a recent graduate with a B.S. in computer science, currently specializing in full-stack web development. I used to play video games competitively but now I build and solve difficult problems through code.`}
+          {`hello there, I'm a recent graduate with a B.S. in computer science, currently specializing in software quality assurance, with a focus on automation testing with playwright and typescript. I strive to learn new things every day.`}
         </p>
       </div>
     </header>
