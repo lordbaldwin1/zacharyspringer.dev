@@ -4,13 +4,14 @@ import GamingList from "~/components/gaming-list";
 import Header from "~/components/header";
 import SectionLinks from "~/components/section-links";
 import SectionList from "~/components/section-list";
+import { useOpenResumeModal } from "~/components/resume-modal-provider";
 
 export type Item = {
   title: string;
   role: string;
   period?: string;
   description: string;
-  href: string;
+  href?: string;
 };
 
 export type Game = {
@@ -22,6 +23,8 @@ export type Game = {
 };
 
 export default function HomePage() {
+  const openResumeModal = useOpenResumeModal();
+
   return (
     <>
       <Header />
@@ -31,7 +34,7 @@ export default function HomePage() {
           title={"work"}
           items={workItems}
           viewAllText="full résumé"
-          viewAllHREF="/resume"
+          onViewAllClick={openResumeModal}
         />
         <GamingList title={"gaming"} games={gamingItems} />
         <SectionList
@@ -69,7 +72,6 @@ const workItems: Item[] = [
     period: "jan. 2024 - jun. 2024",
     description:
       "developed ecommerce storefront & dashboard. created e2e test suite w/ playwright & typescript.",
-    href: "https://github.com/lordbaldwin1/arya/tree/main",
   },
 ];
 

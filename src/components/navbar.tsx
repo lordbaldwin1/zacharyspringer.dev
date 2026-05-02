@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { ThemeToggle } from "./theme-toggle";
 import { Kbd } from "./ui/kbd";
 import {
@@ -15,11 +15,11 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { ListIcon } from "@phosphor-icons/react/dist/ssr";
-import ResumeModal, { type ResumeModalHandle } from "./resume-modal";
+import { useOpenResumeModal } from "./resume-modal-provider";
 
 export default function Navbar() {
   const router = useRouter();
-  const resumeModalRef = useRef<ResumeModalHandle>(null);
+  const openResumeModal = useOpenResumeModal();
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
@@ -39,17 +39,17 @@ export default function Navbar() {
           router.push("/projects");
           break;
         case "r":
-          resumeModalRef.current?.open();
+          openResumeModal();
           break;
       }
     };
 
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [router]);
+  }, [router, openResumeModal]);
 
   const handleResumeClick = () => {
-    resumeModalRef.current?.open();
+    openResumeModal();
   };
 
   return (
@@ -137,7 +137,6 @@ export default function Navbar() {
           </Sheet>
         </div>
       </div>
-      <ResumeModal ref={resumeModalRef} />
     </>
   );
 }
